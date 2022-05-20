@@ -4,7 +4,7 @@ namespace DesignPatterns.Patterns.Mediator.Models
 {
     public class TextBox : UIComponent
     {
-        public TextBox(IMediator mediator) : base(mediator)
+        public TextBox(UIMediator mediator) : base(mediator)
         {
         }
 

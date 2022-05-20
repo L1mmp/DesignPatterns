@@ -4,7 +4,7 @@ namespace DesignPatterns.Patterns.Mediator.Models
 {
     public class Button : UIComponent
     {
-        public Button(IMediator mediator) : base(mediator)
+        public Button(UIMediator mediator) : base(mediator)
         {
         }
 

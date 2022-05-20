@@ -2,9 +2,9 @@ namespace DesignPatterns.Patterns.Mediator.Abstrations
 {
     public abstract class UIComponent
     {
-        protected IMediator mediator;
+        protected UIMediator mediator;
 
-        protected UIComponent(IMediator mediator)
+        protected UIComponent(UIMediator mediator)
         {
             this.mediator = mediator;
         }
