@@ -6,7 +6,7 @@ namespace DesignPatterns.Patterns.Mediator.Models
     {
         public bool isChecked = false;
 
-        public Checkbox(IMediator mediator) : base(mediator)
+        public Checkbox(UIMediator mediator) : base(mediator)
         {
         }
 
