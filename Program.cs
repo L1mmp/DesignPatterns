@@ -2,6 +2,7 @@
 using DesignPatterns.Patterns.Adapter;
 using DesignPatterns.Patterns.Adapter.Models;
 using DesignPatterns.Patterns.Decorator;
+using DesignPatterns.Patterns.DI;
 using DesignPatterns.Patterns.Mediator;
 using DesignPatterns.Patterns.Observer;
 using DesignPatterns.Patterns.Observer.Models;
@@ -16,8 +17,23 @@ namespace DesignPatterns
 			//TestSingleton();
 			//TestMediator();
 			//TestDecorator();
-			TestAdapter();
-            TestObserver();
+			//TestAdapter();
+            //TestObserver();
+			TestDI();
+		}
+
+		private static void TestDI()
+		{
+			IDataSource soure = new MongoDB();
+			IDataSource soure1 = new MSSQLDB();
+			IDataSource soure2 = new PostgreSQLDB();
+			var data = new MyDAO(soure);
+			var data1 = new MyDAO(soure1);
+			var data2 = new MyDAO(soure2);
+
+			Console.WriteLine(data.GetData());
+			Console.WriteLine(data1.GetData());
+			Console.WriteLine(data2.GetData());
 		}
 
 		private static void TestMediator()
