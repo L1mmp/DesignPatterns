@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DesignPatterns.Patterns.AbstractFactory;
 using DesignPatterns.Patterns.Adapter;
 using DesignPatterns.Patterns.Adapter.Models;
 using DesignPatterns.Patterns.Decorator;
@@ -7,6 +7,7 @@ using DesignPatterns.Patterns.Mediator;
 using DesignPatterns.Patterns.Observer;
 using DesignPatterns.Patterns.Observer.Models;
 using DesignPatterns.Patterns.Singleton;
+using System;
 
 namespace DesignPatterns
 {
@@ -18,8 +19,19 @@ namespace DesignPatterns
 			//TestMediator();
 			//TestDecorator();
 			//TestAdapter();
-            //TestObserver();
-			TestDI();
+			//TestObserver();
+			//TestDI();
+			TestFactory();
+		}
+
+		private static void TestFactory()
+		{
+			var heroFactory = new KnightFactory();
+
+			var hero = new Hero(heroFactory);
+
+			hero.Hit();
+			hero.Defend();
 		}
 
 		private static void TestDI()
@@ -86,28 +98,28 @@ namespace DesignPatterns
 
 		}
 
-        
-        private static void TestObserver()
-        {
-            var item = new ShopItem()
-            {
-                Name = "qwe",
-                Price = 250,
-                Description = "123123123123"
-            };
 
-            var publisher = new ShopItemPublisher(item);
-            var obs1 = new EmaiSubscriber();
-            var obs2 = new PhoneSubscriber();
+		private static void TestObserver()
+		{
+			var item = new ShopItem()
+			{
+				Name = "qwe",
+				Price = 250,
+				Description = "123123123123"
+			};
 
-            publisher.AddSubscriber(obs1);
-            publisher.AddSubscriber(obs2);
+			var publisher = new ShopItemPublisher(item);
+			var obs1 = new EmaiSubscriber();
+			var obs2 = new PhoneSubscriber();
 
-            item.Price = 150;
-            
-            publisher.ChangeShopItem(item);
-            // publisher.ChangeShopItem(new ShopItem(){Name = "123", Price = 1500, Description = "qwe"});
+			publisher.AddSubscriber(obs1);
+			publisher.AddSubscriber(obs2);
 
-        }
+			item.Price = 150;
+
+			publisher.ChangeShopItem(item);
+			// publisher.ChangeShopItem(new ShopItem(){Name = "123", Price = 1500, Description = "qwe"});
+
+		}
 	}
 }

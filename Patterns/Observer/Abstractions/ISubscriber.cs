@@ -1,10 +1,9 @@
-using System.Collections.Generic;
 using DesignPatterns.Patterns.Observer.Models;
 
 namespace DesignPatterns.Patterns.Observer.Abstractions
 {
-    public interface ISubscriber
-    {
-        public void Update(ShopItem item);
-    }
+	public interface ISubscriber
+	{
+		public void Update(ShopItem item);
+	}
 }
