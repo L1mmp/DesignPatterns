@@ -34,7 +34,7 @@ namespace DesignPatterns.Patterns.Observer
             }
         }
 
-        private HashSet<ISubscriber> _subs = new HashSet<ISubscriber>();
+		private HashSet<ISubscriber> _subs = new();
         ShopItem observingItem;
     }
 }
